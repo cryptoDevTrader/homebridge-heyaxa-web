@@ -24,6 +24,7 @@ import { DeviceList } from "./helpers/DeviceList";
 import { TuyaDevice, TuyaDeviceType, TuyaDeviceTypes } from "./api/response";
 import { TuyaWebApi } from "./api/service";
 import { TuyaPlatforms } from "./api/platform";
+import { TuyaFroms } from "./api/from";
 import { GarageDoorAccessory } from "./accessories/GarageDoorAccessory";
 import { TemperatureSensorAccessory } from "./accessories/TemperatureSensorAccessory";
 import { Cache } from "./helpers/cache";
@@ -93,6 +94,17 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
       );
     }
 
+    if (
+      options.from !== undefined &&
+      !TuyaPlatforms.includes(options.from)
+    ) {
+      this.log.error(
+        "Invalid from provided, received %s but must be one of %s",
+        options.from,
+        TuyaFroms,
+      );
+    }
+
     // Set cloud polling interval
     this.pollingInterval = config.options.pollingInterval;
 
@@ -102,6 +114,7 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
       options.password,
       options.countryCode,
       options.platform,
+      options.from,
       this.log,
     );
 
