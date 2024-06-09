@@ -27,7 +27,7 @@ interface Config {
     countryCode?: string;
     platform?: TuyaPlatform;
     pollingInterval?: number;
-    from?: TuyaFrom
+    from?: TuyaFrom;
   };
   defaults?: Partial<TuyaDeviceDefaults>[];
   scenes?: boolean | string[];
