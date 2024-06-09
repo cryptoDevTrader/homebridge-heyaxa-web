@@ -96,7 +96,7 @@ export class TuyaWebPlatform implements DynamicPlatformPlugin {
 
     if (
       options.from !== undefined &&
-      !TuyaPlatforms.includes(options.from)
+      !TuyaFroms.includes(options.from)
     ) {
       this.log.error(
         "Invalid from provided, received %s but must be one of %s",
