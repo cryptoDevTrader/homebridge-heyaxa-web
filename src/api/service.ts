@@ -17,6 +17,7 @@ import {
   TuyaResponseHeader,
 } from "./response";
 import { TuyaPlatform } from "./platform";
+import { TuyaFrom } from "./from";
 import delay from "../helpers/delay";
 import { DeviceOfflineError } from "../errors/DeviceOfflineError";
 import { URLSearchParams } from "url";
@@ -30,6 +31,7 @@ export class TuyaWebApi {
     private password: string,
     private countryCode: string,
     private tuyaPlatform: TuyaPlatform = "tuya",
+    private tuyaFrom: TuyaFrom = "tuya",
     private log?: Logger,
   ) {}
 
@@ -164,7 +166,7 @@ export class TuyaWebApi {
         password: this.password,
         countryCode: this.countryCode,
         bizType: this.tuyaPlatform,
-        from: "tuya",
+        from: this.tuyaFrom,
       }).toString();
       const contentLength = formData.length;
 

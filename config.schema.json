@@ -55,6 +55,22 @@
             ],
             "required": true
           },
+          "from": {
+            "title": "From",
+            "type": "string",
+            "default": "form",
+            "oneOf": [
+              {
+                "title": "Tuya",
+                "enum": ["tuya"]
+              },
+              {
+                "title": "Heyaxa",
+                "enum": ["kalevolsmart"]
+              }
+            ],
+            "required": true
+          },
           "pollingInterval": {
             "title": "Polling Interval",
             "type": "number",
